@@ -1,0 +1,11 @@
+{
+	"name": "com.radiants.reactivetween-unitask",
+	"displayName": "ReactiveTween",
+	"version": "1.0.1",
+	"unity": "2018.4",
+	"description": "Fast, less-memory-alloc Tween system using UniTask.",
+	"license": "MIT",
+	"dependencies": {
+		"com.cysharp.unitask": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask"
+	}
+}
