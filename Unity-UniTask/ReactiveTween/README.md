@@ -9,7 +9,7 @@ Fast, less-memory-alloc Tween system using UniTask.
 
 ## Install via git URL
 
-You can add https://github.com/sh-kj/ReactiveTween.git?path=Unity-UniTask/ReactiveTween to Package Manager
+You can add `https://github.com/sh-kj/ReactiveTween.git?path=Unity-UniTask/ReactiveTween` to Package Manager/Add package from git URL.
 
 ## Usage
 

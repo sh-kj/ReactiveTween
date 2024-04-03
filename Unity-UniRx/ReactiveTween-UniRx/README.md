@@ -1,13 +1,19 @@
-# Unity ReactiveTween
+# ReactiveTween for UniRx
 
 Fast, less-memory-alloc Tween system using UniRx and Microcoroutine.
+
+if you are using R3, you can use UniTask version. https://github.com/sh-kj/ReactiveTween.git?path=Unity-UniTask/ReactiveTween
 
 ## Requirement
 
 - Unity 2017 or higher(can be compatible with older version)
 - UniRx https://github.com/neuecc/UniRx
 
-## Usage[UniRx]
+## Install via git URL
+
+You can add `https://github.com/sh-kj/ReactiveTween.git?path=Unity-UniRx/ReactiveTween-UniRx` to Package Manager/Add package from git URL.
+
+## Usage
 
 have to `using UniRx;`
 
