@@ -10,9 +10,10 @@ namespace radiants.ReactiveTween
 		public static async UniTask Fade(float time,
 			System.Action<float> onNext,
 			System.Action onComplete = null,
+			bool dispatchCompleteWhenCanceled = true,
 			bool useUnscaledTime = false,
-			PlayerLoopTiming timing = PlayerLoopTiming.Update,
-			CancellationToken cancellationToken = default)
+			CancellationToken cancellationToken = default,
+			TimeScaleToken timeScaleToken = null)
 		{
 			float elapsedTime = 0f;
 			while (elapsedTime < time)
@@ -22,16 +23,28 @@ namespace radiants.ReactiveTween
 
 				await UniTask.Yield();
 
-				elapsedTime += useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+				float deltaTime = useUnscaledTime ? Time.unscaledDeltaTime : Time.deltaTime;
+				if (timeScaleToken != null) deltaTime *= timeScaleToken.TimeScale;
+				elapsedTime += deltaTime;
 
-				if(cancellationToken.IsCancellationRequested)
+				if (cancellationToken.IsCancellationRequested)
 				{
-					onComplete?.Invoke();
+					if(dispatchCompleteWhenCanceled)
+					{
+						onNext(1f);
+						onComplete?.Invoke();
+					}
 					return;
 				}
 			}
 			onNext(1f);
 			onComplete?.Invoke();
 		}
+	}
+
+
+	public class TimeScaleToken
+	{
+		public float TimeScale { get; set; } = 1f;
 	}
 }

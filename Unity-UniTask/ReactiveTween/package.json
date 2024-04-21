@@ -1,7 +1,7 @@
 {
 	"name": "com.radiants.reactivetween-unitask",
 	"displayName": "ReactiveTween",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"unity": "2018.4",
 	"description": "Fast, less-memory-alloc Tween system using UniTask.",
 	"license": "MIT",
