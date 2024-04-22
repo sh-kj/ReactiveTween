@@ -2,6 +2,8 @@
 
 Fast, less-memory-alloc Tween system using UniTask.
 
+Japanese document here: https://github.com/sh-kj/ReactiveTween.git?path=Unity-UniTask/ReactiveTween/README-ja.md
+
 ## Requirement
 
 - Unity 2019.3 or higher(can be compatible with older version)
@@ -22,7 +24,7 @@ await Fader.Fade(0.5f, value => DoSomething(value));
 
 ```
 System.Threading.CancellationTokenSource source = new System.Threading.CancellationTokenSource();
-var task = Fader.Fade(0.5f, value => DoSomething(value), () => DoComplete(), false, source.Token);
+var task = Fader.Fade(0.5f, value => DoSomething(value), () => DoComplete(), false, false, source.Token);
 source.Cancel();
 ```
 You can cancel task by CancellationToken.  
@@ -33,10 +35,14 @@ You can cancel task by CancellationToken.
 `Easing` contains some easing equations to use, like this;
 
 ```
-Fader.Fade(0.5f)
-	.Subscribe(value => transform.position = Easing.QuadIn.Ease(
+Fader.Fade(0.5f, value => transform.position = Easing.QuadIn.Ease(
 		new Vector3(-5f, 0f, 0f), new Vector3(5f, 0f, 0f), value));
 ```
+
+## Arguments
+
+
+
 
 ## License
 
